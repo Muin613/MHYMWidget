@@ -61,6 +61,22 @@
                 <action android:name="com.munin.test.aidl.service" />
             </intent-filter>
         </service>
+
+        <!-- 配置实时壁纸Service -->
+        <service
+            android:name=".Nice.VideoLiveWallpaper"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:process=":wallpaper">
+            <!-- 为实时壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为实时壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
     </application>
 
 </manifest>
